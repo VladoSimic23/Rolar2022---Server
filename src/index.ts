@@ -2,6 +2,8 @@ import express, { Express } from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
+import morgan from "morgan";
+import helmet from "helmet";
 
 dotenv.config();
 
@@ -19,6 +21,8 @@ const adminRoute = require("./routes/AdminRoute");
 const app: Express = express();
 app.use(cors());
 app.use(express.json());
+app.use(helmet());
+app.use(morgan("common"));
 
 // ROUTES
 app.use("/novaRoleta", novaRoletaRoute);
@@ -30,5 +34,7 @@ app.use("/admin", adminRoute);
 // const PORT = process.env.PORT || 8000;
 
 app.listen("https://rolar-server.herokuapp.com", () => {
-  console.log(`[server]: Server is running at port "https://rolar-server.herokuapp.com"`);
+  console.log(
+    `[server]: Server is running at port "https://rolar-server.herokuapp.com"`
+  );
 });
