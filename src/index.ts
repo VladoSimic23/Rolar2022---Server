@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 import morgan from "morgan";
 import helmet from "helmet";
 
-dotenv.config();
+dotenv.config({ path: "../adress.env" });
 
 mongoose.connect(process.env.MONGOOSE_CONNECTION as any, () => {
   console.log("Connected to MongoDB!");
@@ -31,10 +31,8 @@ app.use("/novaMrezaStandard", novaMrezaStandardRoute);
 app.use("/kupac", kupacRoute);
 app.use("/admin", adminRoute);
 
-// const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8000;
 
-app.listen("https://rolar-server.herokuapp.com", () => {
-  console.log(
-    `[server]: Server is running at port "https://rolar-server.herokuapp.com"`
-  );
+app.listen(PORT, () => {
+  console.log(`[server]: Server is running at port ${PORT}`);
 });
