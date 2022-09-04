@@ -29,6 +29,6 @@ app.use("/admin", adminRoute);
 
 // const PORT = process.env.PORT || 8000;
 
-app.listen(https://rolar-server.herokuapp.com, () => {
-  console.log(`[server]: Server is running at port ${https://rolar-server.herokuapp.com}`);
+app.listen("https://rolar-server.herokuapp.com", () => {
+  console.log(`[server]: Server is running at port "https://rolar-server.herokuapp.com"`);
 });
